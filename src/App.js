@@ -8,7 +8,8 @@ function App() {
   const geometry = new THREE.BoxGeometry(1, 1, 1);
   const material = new THREE.MeshStandardMaterial();
   material.color = new THREE.Color(0xff000);
-
+  const square = new THREE.Mesh(geometry,material)
+  scene.add(square)
   return (
     <div className="App">
       <header className="App-header">
