@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import * as THREE from "three"
 import './App.css';
+import {useEffect} from "react"
 
 function App() {
-  const canvas = document.querySelector('canvas.webgl');
+  const canvas = document.querySelector('canvas');
   const scene = new THREE.Scene();
   const geometry = new THREE.BoxGeometry(1, 1, 1);
   const material = new THREE.MeshStandardMaterial();
@@ -32,7 +33,9 @@ function App() {
   scene.add(camera)
   renderer.setSize(sizes.width, sizes.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  renderer.render(scene, camera)
+  useEffect(() =>{
+    renderer.render(scene, camera)
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
