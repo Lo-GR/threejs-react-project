@@ -4,6 +4,7 @@ import './App.css';
 import {useEffect} from "react"
 
 function App() {
+  useEffect(() =>{
   const canvas = document.querySelector('canvas');
   const scene = new THREE.Scene();
   const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -33,7 +34,6 @@ function App() {
   scene.add(camera)
   renderer.setSize(sizes.width, sizes.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  useEffect(() =>{
     renderer.render(scene, camera)
   }, [])
   return (
