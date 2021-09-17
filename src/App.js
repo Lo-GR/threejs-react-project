@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import * as THREE from "three"
 import './App.css';
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 
 function App() {
+  const [clicked, setClicked] = useState(false);
+  
   useEffect(() =>{
   const canvas = document.querySelector('canvas');
   const scene = new THREE.Scene();
@@ -36,10 +38,16 @@ function App() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.render(scene, camera)
   }, [])
+
+  const handleClick = () => {
+    setClicked(!clicked);
+  }
   return (
     <div className="App">
       <header className="App-header">
-      <canvas className="webgl"></canvas>
+      <canvas 
+        className="webgl"
+        onClick={handleClick}></canvas>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
       </header>
     </div>
