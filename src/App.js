@@ -4,7 +4,7 @@ import './App.css';
 import {useEffect, useState} from "react"
 
 function App() {
-  const [clicked, setClicked] = useState(false);
+  const [rotation, setRotation] = useState(0);
   
   const renderTime = () => {
     const canvas = document.querySelector('canvas');
@@ -13,9 +13,7 @@ function App() {
     const material = new THREE.MeshStandardMaterial();
     material.color = new THREE.Color(0x00ff00);
     const square = new THREE.Mesh(geometry,material)
-    if (clicked){
-      square.rotation.y += 1;
-    }
+    square.rotation.y = rotation;
     scene.add(square)
     const sizes = {
       width: window.innerWidth,
@@ -42,10 +40,10 @@ function App() {
     renderer.render(scene, camera)
   }
 
-  useEffect(renderTime, [clicked])
+  useEffect(renderTime, [rotation])
 
   const handleClick = () => {
-    setClicked(!clicked);
+    setRotation(rotation + .1)
   }
   return (
     <div className="App">
