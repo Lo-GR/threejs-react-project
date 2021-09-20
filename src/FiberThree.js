@@ -6,10 +6,10 @@ export default function FiberThree() {
   return (
     <div className="three-container">
       <Canvas>
-        <ambientLight intensity={.1} />
-        <directionalLight color="red" position={[0,0,5]} />
+        <ambientLight intensity={0.1} />
+        <directionalLight color="red" position={[1,1,5]} />
         <mesh>
-          <boxGeometry args={[2, 2, 2]}/>
+          <sphereGeometry args={[2, 20, 20]}/>
           <meshStandardMaterial />
         </mesh>
       </Canvas>
