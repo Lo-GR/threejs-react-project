@@ -4,8 +4,9 @@ import { TextureLoader } from 'three'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 
 export default function Box({position}) {
-  const textureLoader = new TextureLoader();
-  const normalMap = textureLoader.load('../public/NormalMap.png')
+  // const textureLoader = new TextureLoader;
+  // const normalMap = textureLoader.load('/textures/NormalMap.png')
+  const normalMap = useLoader(TextureLoader, "NormalMap.png")
   const mesh = useRef()
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
@@ -24,8 +25,8 @@ export default function Box({position}) {
       <boxGeometry args = {[1, 1, 1]} />
       <meshStandardMaterial 
         color={hovered ? "hotpink" : "orange"} 
-        metalness={.7}
-        roughness={.2}
+        // metalness={.7}
+        // roughness={.2}
         normalMap={normalMap}
       />
     </mesh>
